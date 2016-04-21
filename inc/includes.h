@@ -1,0 +1,7 @@
+#include "../src/radixsortlsd.cpp"
+#include "../src/radixsortmsd.cpp"
+#include "../src/mergesort.cpp"
+#include "../src/bitonicsort.cpp"
+#include "../src/insertion.cpp"
+#include "../src/slowsort.cpp"
+#include "../src/selection.cpp"
