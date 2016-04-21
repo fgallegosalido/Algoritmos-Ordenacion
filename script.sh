@@ -180,14 +180,15 @@ _full_graph(){
 
 _help(){
   echo "Uso: ./script.sh <option>"
+  echo "  --all: Genera todos los archivos (hace --mrproper, --compile, --data, --graphs y --compare)"
   echo "  --clean: Borra los datos de gnuplot y los binarios que los generan"
   echo "  --mrproper: Borra los datos de gnuplot, todos los binarios y todas las gráficas"
   echo "  --compile: Compila los programas"
-  echo "  --data: Compila los programas y genera los datos"
+  echo "  --data: Genera los datos (se compilarán los programas si estos no existen)"
   echo "  --graphs: Genera las gráficas de cada algoritmo a partir de los datos (se generan los datos si estos no existen)"
   echo "  --compare: Genera las gráficas de las comparativas (tanto la total como la separada según velocidad; genera datos si no existen)"
   echo "  --help: Muestra esta ayuda"
-  echo "  Si no hay argumentos o más de uno, se tomará como --mrproper, --compile, --data, --graphs y --compare"
+  echo "  Si no hay argumentos o más de uno, devolverá un error, mostrará esta ayuda y acabará"
 }
 
 if [ $# -eq 1 ]; then
@@ -208,16 +209,19 @@ if [ $# -eq 1 ]; then
     _full_graph
   elif [ "$1" == "--help" ]; then
     _help
+  elif [ "$1" == "--all" ]; then
+    find . -regex ".*~" -exec rm {} \;
+    rm -rf data binaries graphs
+    _compile
+    _data
+    _graphs
+    _partial_graphs
+    _full_graph
   else
     echo "Error: Argumento incorrecto"
     _help
   fi
 else
-  find . -regex ".*~" -exec rm {} \;
-  rm -rf data binaries graphs
-  _compile
-  _data
-  _graphs
-  _partial_graphs
-  _full_graph
+  echo "Error: Número de argumentos incorrecto"
+  _help
 fi
