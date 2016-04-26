@@ -19,3 +19,6 @@ CheckTime(&Selection, array, n);
 #ifdef BITONICSORT
 CheckTime(&BitonicSort, array, n);
 #endif
+#ifdef HEAPSORT
+CheckTime(&HeapSort, array, n);
+#endif

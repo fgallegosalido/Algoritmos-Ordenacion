@@ -5,3 +5,4 @@
 #include "../src/insertion.cpp"
 #include "../src/slowsort.cpp"
 #include "../src/selection.cpp"
+#include "../src/heapsort.cpp"
