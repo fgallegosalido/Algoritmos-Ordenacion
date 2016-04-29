@@ -1,11 +1,5 @@
 #!/bin/bash
 
-if [ ! -f .identifier ] && [ "$(md5sum .identifier 2> /dev/null | cut -d" " -f1)" != "d41d8cd98f00b204e9800998ecf8427e" ]; then
-  echo "No estás en el directorio correcto"
-  echo "Ejecuta el script desde el directorio donde está (o estaba) el mismo"
-  exit 1
-fi
-
 if ! type g++ &> /dev/null; then
   echo "No tienes instalado g++"
   echo "Instálalo usando el comando 'sudo apt-get install g++'"
