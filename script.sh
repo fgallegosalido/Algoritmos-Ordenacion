@@ -12,15 +12,15 @@ if ! type gnuplot &> /dev/null; then
   exit 1
 fi
 
-compiler="g++"
-flags="-g -O2 -std=c++11"
+compiler="g++ -std=c++11"
+flags="-g -O2"
 plotter="gnuplot"
 gnu_dir="binaries/gnuplot"
 temp="temporal.gp"
 
 really_slow=("slowsort")
-slow=("insertion" "selection")
-fast=("radixsortlsd" "radixsortmsd" "mergesort" "heapsort" "bitonicsort")
+slow=("insertion" "selection" "bubblesort")
+fast=("quicksort" "radixsortlsd" "radixsortmsd" "mergesort" "heapsort" "bitonicsort")
 
 _compile(){
 

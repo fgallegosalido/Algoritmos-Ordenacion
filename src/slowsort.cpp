@@ -7,9 +7,7 @@ void Slow(T* &vector, int ini, int fin){
     Slow(vector, mid+1, fin);
 
     if (vector[mid] > vector[fin]){
-      T aux = vector[mid];
-      vector[mid] = vector[fin];
-      vector[fin] = aux;
+      Swap(vector[mid], vector[fin]);
     }
 
     Slow(vector, ini, fin-1);

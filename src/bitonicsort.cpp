@@ -1,9 +1,7 @@
 template <class T>
 void Compare(T* &vector, int i, int j, bool dir){
   if (dir == (vector[i] > vector[j])){
-    T aux = vector[i];
-    vector[i] = vector[j];
-    vector[j] = aux;
+    Swap(vector[i], vector[j]);
   }
 }
 

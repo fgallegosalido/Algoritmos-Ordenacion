@@ -37,9 +37,7 @@ void MergeSortLims(T* &vector, int ini, int fin){
   int size = fin - ini + 1;
   if(size == 2){
     if(vector[fin]<vector[ini]){
-      T aux = vector[ini];
-      vector[ini] = vector[fin];
-      vector[fin] = aux;
+      Swap(vector[ini], vector[fin]);
     }
   }
   else if(size > 2){

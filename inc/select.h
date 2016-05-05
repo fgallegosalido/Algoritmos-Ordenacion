@@ -22,3 +22,12 @@ CheckTime(&BitonicSort, array, n);
 #ifdef HEAPSORT
 CheckTime(&HeapSort, array, n);
 #endif
+#ifdef QUICKSORT
+CheckTime(&QuickSort, array, n);
+#endif
+#ifdef BUBBLESORT
+CheckTime(&BubbleSort, array, n);
+#endif
+#ifdef PERMUTATIONSORT
+CheckTime(&PermutationSort, array, n);
+#endif
