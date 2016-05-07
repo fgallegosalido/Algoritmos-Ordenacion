@@ -20,7 +20,7 @@ temp="temporal.gp"
 
 really_slow=("slowsort")
 slow=("insertion" "selection" "bubblesort")
-fast=("quicksort" "radixsortlsd" "radixsortmsd" "mergesort" "heapsort" "bitonicsort")
+fast=("quicksort" "radixsortlsd" "radixsortmsd" "mergesort" "heapsort" "bitonicsort" "countingsort")
 
 _compile(){
 
@@ -257,33 +257,51 @@ _compare(){
   expresion=${expresion:0:-1}
   expresion="$expresion)"
 
-  echo "Elige dos entre estos:"
+  num_algs=$(ls data/ | wc -l)
+
+  while
+    printf "Introduce el número de algoritmos que quieres comparar (mínimo 2, máximo $num_algs) --> "
+    read NUM
+    [ $NUM -lt 2 ] || [ $NUM -gt $num_algs ]
+  do
+    :
+  done
+
+
+  echo "Elige $NUM entre estos:"
   for DATA in `ls data/`; do
     echo "*) $(echo $DATA | cut -d"." -f1)"
   done
   printf "\n"
 
-  while
-    printf "Introduzca el nombre del primer algoritmo (uno válido) --> "
-    read ALG1
-    [[ ! $ALG1.dat =~ $expresion\.dat ]]
-  do
-    :
-  done
-
-  while
-    printf "Introduzca el nombre del segundo algoritmo (uno válido) --> "
-    read ALG2
-    [[ ! $ALG2.dat =~ $expresion\.dat ]]
-  do
-    :
+  for i in `seq 1 1 $NUM`; do
+    while
+      printf "Introduzca el nombre de un algoritmo válido ($(($NUM-$i+1)) restantes)--> "
+      read ALG
+      [[ ! $ALG.dat =~ $expresion\.dat ]]
+    do
+      :
+    done
+    let num=$i-1
+    array[$num]=$ALG
   done
 
   printf "Creando gráfica..."
 
   _init_gnuplot
-  echo "set output \"graphs/vs/$ALG1-$ALG2.jpeg\"" >> $temp
-  printf "plot \"data/$ALG1.dat\" with linespoints title \"$ALG1\", \"data/$ALG2.dat\" with linespoints title \"$ALG2\"" >> $temp
+  printf "set output \"graphs/vs/" >> $temp
+  for ALG in "${array[@]}"; do
+    label=${ALG:0:4}
+    printf "$label-" >> $temp
+  done
+  printf "comp.jpeg\"\n" >> $temp
+  printf "plot" >> $temp
+
+  for DATA in "${array[@]}"; do
+    printf ", \"data/$DATA.dat\" with linespoints title \"$DATA\"" >> $temp
+  done
+
+  sed -i 's/plot,/plot/' $temp
 
   $plotter $temp
   rm $temp
