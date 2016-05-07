@@ -16,3 +16,4 @@ void Swap(T &i, T &j){
 #include "../src/quicksort.cpp"
 #include "../src/bubblesort.cpp"
 #include "../src/permutationsort.cpp"
+#include "../src/countingsort.cpp"

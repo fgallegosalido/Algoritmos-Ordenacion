@@ -31,3 +31,6 @@ CheckTime(&BubbleSort, array, n);
 #ifdef PERMUTATIONSORT
 CheckTime(&PermutationSort, array, n);
 #endif
+#ifdef COUNTINGSORT
+CheckTime(&CountingSort, array, n);
+#endif
