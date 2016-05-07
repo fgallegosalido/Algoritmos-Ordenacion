@@ -143,7 +143,7 @@ El programa de la visualización de algoritmos podéis descargarlo \href{https:/
 	\begin{block}{¿Qué es un algoritmo de ordenación?}
 	Un algoritmo de ordenación es un conjunto de pasos que, dada una determinada lista de valores, devuelve la correspondiente lista en orden (de menor a mayor por lo general).
 	\end{block}
-	
+
 	\begin{block}{¿Por qué son importantes?}
 	Todo sistema informático o aplicación requiere de ordenar algún tipo de datos, ya sean palabras, números o cualquier otra cosa.
 	\end{block}
@@ -214,7 +214,7 @@ Vamos a poner un ejemplo.\\
 	\begin{exampleblock}{Ejemplo}
 	$f(x) = 2^x$, $g(x) = 3^x$. Es evidente que $\mathcal{O}(g) < \mathcal{O}(f)$ porque $3^x < r\cdot2^x \Rightarrow (\tfrac{3}{2})^x < r$, pero \[\lim_{x \to +\infty}(\tfrac{3}{2})^x = \infty\]luego  no existe ninguna constante r que acote ese límite.
 	\end{exampleblock}
-	
+
 	\begin{alertblock}{Cuidado}
 	Si tenemos $f(x) = x^2$ y $g(x) = 1000000x^2$, $\mathcal{O}(g) = \mathcal{O}(f)$ por muy grandes que sean las constantes de $g(x)$.
 	\end{alertblock}
@@ -226,7 +226,7 @@ Una vez conocida la notación, vamos a ver las dos operaciones básicas:
 	\item Suma: $\mathcal{O}(f) + \mathcal{O}(g) = \mathcal{O}(\max(f,g))$
 	\item Producto: $\mathcal{O}(f) \cdot \mathcal{O}(g) = \mathcal{O}(f\cdot g)$
 	\end{itemize}
-	
+
 	\begin{exampleblock}{Ejemplos}
 	$\mathcal{O}(n) + \mathcal{O}(\log_2(n)) = \mathcal{O}(n)$\\
 	$\mathcal{O}(n) \cdot \mathcal{O}(2^n) = \mathcal{O}(n\cdot2^n)$
@@ -248,7 +248,7 @@ Consideremos este código:\\
 	  aux = a;
 	  a = b;
 	  b = aux;
-	
+
 	  std::cout << a << b << std::endl;
 	}
 	\end{lstlisting}
@@ -264,7 +264,7 @@ Cada instrucción se considera $\mathcal{O}(1)$:
 	  aux = a;  //--------------------------->O(1)
 	  a = b;  //----------------------------->O(1)
 	  b = aux;  //--------------------------->O(1)
-	
+
 	  std::cout << a << b << std::endl;  //-->O(1)
 	}
 	\end{lstlisting}
@@ -280,7 +280,7 @@ Consideremos este otro código:\\
 	  int n;
 	  std::cin >> n;
 	  int* v = new int[n];
-	
+
 	  for (int i=0; i<n; ++i){
 	    v[i] = i;
 	  }
@@ -297,7 +297,7 @@ La eficiencia de un bucle es la eficiencia de lo que hay dentro por el número d
 	  int n;  //--------------------------->O(1)
 	  std::cin >> n;  //------------------->O(1)
 	  int* v = new int[n];  //------------->O(1)
-	
+
 	  for (int i=0; i<n; ++i){//      |\
 	    v[i] = i;  //----------->O(1) |---->O(1)*n = O(n)
 	  }//                             |/
@@ -427,7 +427,7 @@ Podríamos decir que este es el peor de los algoritmos cuadráticos y que solo e
 \begin{frame}{Gráfica}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/separate/bubblesort.jpeg}
+		\includegraphics[scale=0.40]{images/bubblesort.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -445,7 +445,7 @@ Tampoco es una maravilla comparado con el Burbuja (de hecho en las gráficas es 
 \begin{frame}{Gráfica}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/separate/selection.jpeg}
+		\includegraphics[scale=0.40]{images/selection.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -463,7 +463,7 @@ Este algoritmo, al contrario que los otros dos cuadráticos, sí que se usa en a
 \begin{frame}{Gráfica}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/separate/insertion.jpeg}
+		\includegraphics[scale=0.40]{images/insertion.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -471,7 +471,7 @@ Este algoritmo, al contrario que los otros dos cuadráticos, sí que se usa en a
 \begin{frame}{Comparación Cuadráticos}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/comparative/slow.jpeg}
+		\includegraphics[scale=0.40]{images/slow.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -501,7 +501,7 @@ Este algoritmo, al contrario que los otros dos cuadráticos, sí que se usa en a
 		\end{column}
 		\begin{column}{6cm}
 			\begin{alertblock}{}
-			\hspace*{+0.5cm}\includegraphics[scale=0.36]{metodo_divide_y_venceras.JPG}
+			\hspace*{+0.5cm}\includegraphics[scale=0.36]{images/metodo_divide_y_venceras.JPG}
 			\end{alertblock}
 		\end{column}
 	\end{columns}
@@ -520,7 +520,7 @@ Una vez llegado el caso base, se van uniendo las mitades (estas ya ordenadas) co
 \begin{frame}{Gráfica}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/separate/mergesort.jpeg}
+		\includegraphics[scale=0.40]{images/mergesort.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -542,7 +542,7 @@ Llegamos al que posiblemente sea el algoritmo más usado de todos. Este algoritm
 \begin{frame}{Gráfica}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/separate/quicksort.jpeg}
+		\includegraphics[scale=0.40]{images/quicksort.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -550,7 +550,7 @@ Llegamos al que posiblemente sea el algoritmo más usado de todos. Este algoritm
 \begin{frame}{Comparación Mergesort-Quicksort}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/vs/quicksort-mergesort.jpeg}
+		\includegraphics[scale=0.40]{images/quic-merg.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -578,7 +578,7 @@ Puesto que es un algoritmo algo difícil de comprender, se explicará la idea pa
 \begin{frame}{Gráfica}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/separate/bitonicsort.jpeg}
+		\includegraphics[scale=0.40]{images/bitonicsort.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -586,7 +586,7 @@ Puesto que es un algoritmo algo difícil de comprender, se explicará la idea pa
 \begin{frame}{Comparación Divide y Vencerás}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/vs/quic-merg-bito-comp.jpeg}
+		\includegraphics[scale=0.40]{images/quic-merg-bito.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -606,11 +606,11 @@ Puesto que es un algoritmo algo difícil de comprender, se explicará la idea pa
 \begin{frame}{Radixsort}
 El Radixsort es un algoritmo que ordena según los dígitos de los datos (es decir, enteros no negativos). Tiene dos variantes\\
 	\begin{itemize}
-	\item Dígito Menos Significativo (LSD): Va ordenando empezando por los dígitos menos significativos (unidades, decenas...) hacia los más significatvos (millón, decena de millón...).
+	\item Dígito Menos Significativo (LSD): Va ordenando empezando por los dígitos menos significativos (unidades, decenas...) hacia los más significativos (millón, decena de millón...).
 	\item Dígito Más Significativo (MSD): Justo al revés que el anterior, solo que para este caso es necesaria la recursividad y para el anterior no.
 	\end{itemize}
 	\begin{block}{Eficiencia}
-	La eficiencia de este algoritmo depende del dato que se esté ordenando. Suponiendo que el tamaño del dato en bits es $w$, la eficiencia sería $\mathcal{O}(w\cdot n)$. Puesto que el $w$ es constante a lo largo del algoritmo, podemos asummir que el orden es $\mathcal{O}(n)$, aunque con unas constantes ocultas un tanto altas.
+	La eficiencia de este algoritmo depende del dato que se esté ordenando. Suponiendo que el tamaño del dato en bits es $w$, la eficiencia sería $\mathcal{O}(w\cdot n)$. Puesto que el $w$ es constante a lo largo del algoritmo, podemos asumir que el orden es $\mathcal{O}(n)$, aunque con unas constantes ocultas un tanto altas.
 	\end{block}
 \end{frame}
 
@@ -626,7 +626,7 @@ Para el MSD hacemos lo mismo solo que empezando por el dígito más significativ
 \begin{frame}{Comparación LSD-MSD}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/vs/radi-radi-comp.jpeg}
+		\includegraphics[scale=0.40]{images/radi-radi.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -648,7 +648,7 @@ En la gráfica comparativa de los tres algoritmos de ordenación por conjuntos y
 \begin{frame}{Gráfica}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/separate/countingsort.jpeg}
+		\includegraphics[scale=0.40]{images/countingsort.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -656,7 +656,7 @@ En la gráfica comparativa de los tres algoritmos de ordenación por conjuntos y
 \begin{frame}{Comparación Ordenación por Conjuntos}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/vs/coun-radi-radi-comp.jpeg}
+		\includegraphics[scale=0.40]{images/coun-radi-radi.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -664,7 +664,7 @@ En la gráfica comparativa de los tres algoritmos de ordenación por conjuntos y
 \begin{frame}{Comparación Countingsort-Quicksort}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/vs/coun-quic-comp.jpeg}
+		\includegraphics[scale=0.40]{images/coun-quic.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -691,7 +691,7 @@ La idea es meter todos los datos en un árbol binario parcialmente ordenado, que
 \begin{frame}{Gráfica}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/separate/heapsort.jpeg}
+		\includegraphics[scale=0.40]{images/heapsort.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -699,7 +699,7 @@ La idea es meter todos los datos en un árbol binario parcialmente ordenado, que
 \begin{frame}{Comparación Mergesort-Heapsort}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.32]{../graphs/vs/merg-heap-comp.jpeg}
+		\includegraphics[scale=0.32]{images/merg-heap.jpeg}
 		\end{center}
 	\end{alertblock}
 Como vemos, en rapidez no es mejor que el Mergesort.
@@ -724,7 +724,7 @@ Como se puede comprobar, no es algo precisamente trivial y requiere de muchas ho
 \end{frame}
 
 \begin{frame}{Slowsort}
-El nombre lo dice todo. Este algoritmo es más una curiosidad que otra cosa, una oda a como coger el camino más largo para resolver un prblema.\\
+El nombre lo dice todo. Este algoritmo es más una curiosidad que otra cosa, una oda a como coger el camino más largo para resolver un problema.\\
 \vspace{0.20in}
 Básicamente consiste en ordenar las dos mitades del vector, quedarse con el mayor elemento de ambas mitades (el que está en la posición límite) y dejarlo al final del vector. Hecho esto, llamamos a Slowsort con todos los elementos menos el último. Simplemente absurdo.\\
 	\begin{block}{Eficiencia}
@@ -736,7 +736,7 @@ Ahora veremos en las gráficas por qué es tan malo.
 \begin{frame}{Gráfica}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/separate/slowsort.jpeg}
+		\includegraphics[scale=0.40]{images/slowsort.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
@@ -744,7 +744,7 @@ Ahora veremos en las gráficas por qué es tan malo.
 \begin{frame}{Comparativa Slowsort-Selección}
 	\begin{alertblock}{}
 		\begin{center}
-		\includegraphics[scale=0.40]{../graphs/vs/sele-slow-comp.jpeg}
+		\includegraphics[scale=0.40]{images/sele-slow.jpeg}
 		\end{center}
 	\end{alertblock}
 \end{frame}
