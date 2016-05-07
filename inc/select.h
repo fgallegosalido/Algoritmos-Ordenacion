@@ -34,3 +34,6 @@ CheckTime(&PermutationSort, array, n);
 #ifdef COUNTINGSORT
 CheckTime(&CountingSort, array, n);
 #endif
+#ifdef MEDIUMSORT
+CheckTime(&MediumSort, array, n);
+#endif
